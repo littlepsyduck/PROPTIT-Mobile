@@ -1,1 +1,1 @@
-# PROPTIT-Mobile
+This belongs to [Nguyễn Bá Việt Hoàng](https://github.com/littlepsyduck), in the course of the Mobile Project Team at [ProPTIT](https://proptit.com/).
