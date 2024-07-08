@@ -179,7 +179,7 @@ println(x)
 
 ## III. Câu lệnh rẽ nhánh
 
-### 1. Câu lệnh If - Else
+### 1. Câu lệnh If Else
 
 - Giống các ngôn ngữ đã học.
 - Bên cạnh đó, trong Kotlin `if..else` hoạt động như 1 biểu thức trả về (bắt buộc có `else`):
