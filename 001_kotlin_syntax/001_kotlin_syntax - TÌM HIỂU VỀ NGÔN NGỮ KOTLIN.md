@@ -13,20 +13,18 @@
   - [II. Biến, kiểu dữ liệu](#ii-biến-kiểu-dữ-liệu)
     - [1. Biến](#1-biến)
       - [Khai báo biến](#khai-báo-biến)
-      - [String template](#string-template)
-    - [2. Kiểu dữ liệu](#2-kiểu-dữ-liệu)
-      - [Ép kiểu dữ liệu](#ép-kiểu-dữ-liệu)
-      - [Toán tử](#toán-tử)
-  - [III. Câu lệnh rẽ nhánh](#iii-câu-lệnh-rẽ-nhánh)
-    - [1. Câu lệnh If - Else](#1-câu-lệnh-if-else)
-    - [2. Câu lệnh When](#2-câu-lệnh-when)
   - [IV. Vòng lặp](#iv-vòng-lặp)
     - [1. Vòng lặp For](#1-vòng-lặp-for)
     - [2. Vòng lặp While](#2-vòng-lặp-while)
     - [3. Break, Continue, Return](#3-break-continue-return)
-      - [Gán nhãn](#gán-nhãn)
   - [V. Các Colections trong Kotlin](#v-các-colections-trong-kotlin)
+    - [1. List](#1-list)
+    - [2. Set](#2-set)
+    - [3. Map](#3-map)
   - [VI. Null safety](#vi-null-safety)
+    - [1. Kiểu Null và Non-Null trong Kotlin](#1-kiểu-null-và-non-null-trong-kotlin)
+    - [2. Safe Calls](#2-safe-calls)
+    - [3. Toán tử](#3-toán-tử)
 
 ## I. Giới thiệu Kotlin
 
@@ -279,18 +277,105 @@ println(x)
 
 - Giống với ngôn ngữ đã học.
 
-#### Gán nhãn
-
 ## V. Các Colections trong Kotlin
 
 ![Picture 2](p2.png)
 
-- Các Collections trong Kotlin:
+- Các collections trong Kotlin:
 
     | <center>Phân loại</center> | Mô tả         |
     |-------------|-----------------|
     | <center>Lists</center>      | Collections có thứ tự của các phần tử         |
-    | <center>Sets</center>      | Collections không có thứ tự duy nhất của các phần tử       |
+    | <center>Sets</center>      | Collections không có thứ tự của các phần tử duy nhất      |
     | <center>Maps</center>       | Tập hợp các cặp key - value trong đó các khóa là duy nhất và chỉ ánh xạ tới một giá trị   |
 
+- Có 2 loại interface đại diện cho các loại collection trong Kotlin:
+  - Read-only interface: cung cấp các thao tác truy cập vào các phần tử bộ sưu tập.
+  - Mutable interface: cung cấp thêm các phương thức ghi: thêm, xóa, cập nhật phần tử.
+- Lưu ý: `MutableCollection` không nhất thiết phải được gán cho `var`.
+
+  ```kotlin
+  val numbers = mutableListOf("one", "two", "three", "four")
+  numbers.add("five")   // this is OK
+  println(numbers)
+  //numbers = mutableListOf("six", "seven")      // compilation error
+  ```
+
+### 1. List
+
+- Là 1 tập các phần tử được sắp xếp theo thứ tự, có thể trùng lặp. Có thể truy cập vào các phần tử thông qua index. List không có kích thước cụ thể. 
+- Cú pháp:
+  - `val list = listOf<String>("Hello", "hello", "bello")`
+  - `val mutableList = mutableListOf<String>("Hello", "hello", "bello")`
+- Một số thuộc tính và phương thức thường được sử dụng:
+  - `size`: Số phần tử trong list.
+  - `get(i)`: Trả về phần tử tại chỉ mục i.
+  - `indexOf(item)`: Trả về chỉ mục xuất hiện lần đầu của item, không có trả về -1.
+  - `add()`: Thêm một phần tử vào trong MutableList.
+  - `removeAt()`: Xóa phần tử có chỉ số i.
+  - `remove(item)`: Xóa phần tử item.
+
+### 2. Set
+
+- Là 1 tập các phần tử không có thứ tự nên không thể truy cập các phần tử theo index. Các phần tử trong set chỉ xuất hiện 1 lần, không trùng lặp.
+- Cú pháp:
+  - `setOf()`
+  - `mutableSetOf()`
+
+### 3. Map
+
+- Map lưu dữ liệu dưới dạng key - value.
+- Mỗi key là duy nhất, value có thể trùng nhau.
+- Cú pháp:
+  - val map = mapOf<K, V>(key to value, key to value,...)
+  - val mutableMap = mutableMapOf<K, V>(key to value, key to value,...)
+  
+  ```kotlin
+  val map = mapOf<String, Int>("key1" to 1, "key2" to 2)
+  ```
+
 ## VI. Null safety
+
+### 1. Kiểu Null và Non-Null trong Kotlin
+
+- Trong Kotlin, khi chúng ta khai báo 1 biến với giá trị `null` thì hệ thống sẽ ngay lập tức gửi thông báo **Null can not be a value of a non-null type** để bắt ta phải gán 1 giá trị khác null cho biến. Nhờ vậy ta có thể tránh lỗi **NullpointerException** trong lúc lập trình.
+- Trong trường hợp cần khai báo các giá trị bằng `null`, cần thêm dấu `?` vào cuối kiểu dữ liệu khai báo.
+  
+  ```kotlin
+    val name: Int? = null
+    println(name)
+    // null
+  ```
+
+### 2. Safe Calls
+
+- Khi truy cập các biến có thể mang giá trị null, có nhiều khả năng xảy ra lỗi. Vì vậy ta cần dùng “safe call”.
+
+  ```kotlin
+  val a: String? = null
+  val b = a?.length
+  print(b)
+  ```
+
+  - Biến a được khởi tạo với giá trị null nên nếu gán trực tiếp biến a.length vào biến b thì chương trình sẽ bị lỗi **NullPointerException**. Do vậy, ta sử dụng “?.” kiểm tra xem a có null hay không. Nếu a khác null thì b sẽ nhận giá trị a.length còn nếu a là null thì b sẽ nhận giá trị null.
+
+### 3. Toán tử
+
+- Toán tử khẳng định not-null `!!` chuyển đổi bất kỳ giá trị nào thành kiểu not-null và ném ra ngoại lệ nếu giá trị là null.
+
+  ```kotlin
+  var a: String? = null
+  var b = a!!.length
+  print(b)
+  // Exception in thread "main" java.lang.NullPointerException at MainKt.main(Main.kt:5)
+    ```
+
+  - Khi sử dụng ``!!`` thay cho `?`, đoạn code trên sẽ được thực thi hết rồi trình biên dịch mới báo lỗi nếu a là null
+
+- Toán tử Elvis `?:` giúp kiểm tra xem đối tượng ấy có mang giá trị null hay không.
+
+  ```kotlin
+  var b = a?.length ?: 0
+  ```
+
+  - Nếu a?.length không null thì b sẽ nhận giá trị của a.length, ngược lại nó sẽ nhận giá trị 0.
