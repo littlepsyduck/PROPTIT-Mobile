@@ -24,7 +24,7 @@
     - [1. Vòng lặp For](#1-vòng-lặp-for)
     - [2. Vòng lặp While](#2-vòng-lặp-while)
     - [3. Break, Continue, Return](#3-break-continue-return)
-  - [V. Các Colections trong Kotlin](#v-các-colections-trong-kotlin)
+  - [V. Các Collections trong Kotlin](#v-các-colections-trong-kotlin)
     - [1. List](#1-list)
     - [2. Set](#2-set)
     - [3. Map](#3-map)
@@ -284,7 +284,7 @@ println(x)
 
 - Giống với ngôn ngữ đã học.
 
-## V. Các Colections trong Kotlin
+## V. Các Collections trong Kotlin
 
 ![Picture 2](p2.png)
 
