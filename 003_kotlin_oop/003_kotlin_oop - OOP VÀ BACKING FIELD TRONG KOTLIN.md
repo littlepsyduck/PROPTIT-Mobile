@@ -4,9 +4,6 @@
 
 ![Picture 1](p1.png)
 
-4 tính chất OOP: Encapsulation, Inheritance, Polymorphism, Abstraction.
-Backing field.
-
 ## Table of Content
 
 - [OOP VÀ BACKING FIELD TRONG KOTLIN](#oop-và-backing-field-trong-kotlin)
@@ -20,7 +17,12 @@ Backing field.
       - [Gọi việc triển khai Superclass](#gọi-việc-triển-khai-superclass)
       - [Quy tắc Overriding](#quy-tắc-overriding)
     - [3. Polymorphism (Đa hình)](#3-polymorphism-đa-hình)
+      - [Compile-time Polymorphism](#compile-time-polymorphism)
+      - [Runtime Polymorphism](#runtime-polymorphism)
     - [4. Abstraction (Trừu tượng)](#4-abstraction-trừu-tượng)
+      - [Abtract Class](#abtract-class)
+      - [Interface](#interface)
+      - [Giải quyết xung đột Overriding](#giải-quyết-xung-đột-overriding)
   - [II. Backing field](#ii-backing-field)
 
 ## I. Các tính chất của OOP trong Kotlin
@@ -324,11 +326,197 @@ Các thuộc tính được khai báo trên `superclass` sau đó được khai 
 > Từ này được phỏng theo và có nguồn gốc từ Hy Lạp poly-, có nghĩa là nhiều, và -morphism, là các dạng. Tính đa hình là khả năng sử dụng các đối tượng khác nhau theo một cách chung.
 > *Ví dụ: khi người dùng kết nối loa Bluetooth với điện thoại di động, điện thoại chỉ cần biết có một thiết bị có thể phát âm thanh bằng Bluetooth. Tuy nhiên, có nhiều loa Bluetooth để bạn chọn và điện thoại không cần phải biết cụ thể cách làm việc với từng loa.*
 
+- Tính đa hình được chia thành 2 loại:
+  - Đa hình trong Compile-time.
+  - Đa hình trong Runtime.
+
+#### Compile-time Polymorphism
+
+- Đa hình trong Compile-time, tên hàm vẫn giống nhau nhưng tham số hoặc kiểu trả về thì khác. Tại thời điểm biên dịch, trình biên dịch sau đó sẽ giải quyết các hàm mà chúng ta đang cố gọi dựa trên kiểu tham số và nhiều hơn nữa.
+
+  ```kotlin
+  fun main (args: Array<String>) {
+    println(doubleof(4))
+    println(doubleof(4.3))
+    println(doubleof(4.323))
+  }
+ 
+  fun doubleof(a: Int):Int {
+    return 2*a
+  }
+ 
+  fun doubleOf(a:Float):Float {
+    return 2*a
+  }
+ 
+  fun doubleof(a:Double):Double {
+    return 2.00*a
+  }
+  // 8
+  // 8.6
+  // 8.646
+  ```
+
+#### Runtime Polymorphism
+
+- Đa hình trong Runtime, trình biên dịch giải quyết lệnh gọi đến các phương thức bị ghi đè/quá tải tại thời gian chạy. Chúng ta có thể đạt được đa hình thời gian chạy bằng cách ghi đè phương thức.
+
+  ```kotlin
+  fun main(args: Array<String>){
+    val a = Sup()
+    a.method1()
+    a.method2()
+   
+    val b = Sum()
+    b.method1()
+    b.method2()
+  }
+ 
+  open class Sup{
+    open fun method1(){
+       println("printing method 1 from inside Sup")
+    }
+    fun method2(){
+       println("printing method 2 from inside Sup")
+    }
+  }
+ 
+  class Sum:Sup(){
+    override fun method1(){
+       println("printing method 1 from inside Sum")
+    }  
+  }
+  // printing method 1 from inside Sup
+  // printing method 2 from inside Sup
+  // printing method 1 from inside Sum
+  // printing method 2 from inside Sup
+  ```
+
 ### 4. Abstraction (Trừu tượng)
 
 > Là phần mở rộng của việc đóng gói. Với mục đích là ẩn logic triển khai bên trong càng nhiều càng tốt.
 > *Ví dụ: để chụp ảnh bằng điện thoại di động, người dùng cần mở ứng dụng máy ảnh, hướng điện thoại đến nơi muốn chụp và nhấp vào nút để chụp ảnh. Họ không cần phải biết cách phát triển ứng dụng máy ảnh hoặc phần cứng máy ảnh trên điện thoại di động thực tế hoạt động như thế nào. Tóm lại, cơ chế nội bộ của ứng dụng máy ảnh và cách máy ảnh trên thiết bị di động chụp ảnh sẽ được tóm tắt để người dùng thực hiện các tác vụ cần thiết.*
 
+- Trong Kotlin, ta có thể sử dụng `abstract class` và `interface` để đạt được tính trừu tượng.
+
+#### Abtract Class
+
+- Từ khóa `abstract` được sử dụng để khai báo `abstract class` trong Kotlin.
+
+- Không thể tạo ra một đối tượng của `abstract class`. Tuy nhiên, nó có thể được kế thừa bởi các `subclass`.
+
+- Các hàm và thuộc tính của `abtract class` là non-abstract.
+
+- Không cần sử dụng `open`.
+
+  ```kotlin
+  abstract class Polygon {
+    abstract fun draw()
+  }
+
+  class Rectangle : Polygon() {
+    override fun draw() {
+        // draw the rectangle
+    }
+  }
+  ```
+
+- Có thể override một thành viên `non-abtract open` bằng `abtract`.
+
+  ```kotlin
+  open class Polygon {
+    open fun draw() {
+        println("Drawing a polygon")
+    }
+  }
+
+  abstract class WildShape : Polygon() {
+    abstract override fun draw()
+  }
+
+  class CrazyShape : WildShape() {
+    override fun draw() {
+        println("Drawing a crazy shape")
+    }
+  }
+
+  fun main() {
+    val crazyShape = CrazyShape()
+    crazyShape.draw() 
+    // Output: Drawing a crazy shape
+  }
+  ```
+
+#### Interface
+
+- Một `interface` có thể chứa các phương thức trừu tượng cũng như các phương thức có nội dung.
+- Một `interface` được định nghĩa bằng từ khóa `interface`.
+
+  ```kotlin
+  interface MyInterface {
+    fun bar()
+    fun foo() {
+      // optional body
+    }
+  }
+  class Child : MyInterface {
+    override fun bar() {
+        // body
+    }
+  }
+  ```
+
+- Có thể khai báo các thuộc tính trong `interface`, bản chất khi khai báo một thuộc tính trong `interface` là tạo ra 2 hàm getter/setter cho thuộc tính đó. Nếu là `val` thì chỉ có getter, còn `var` thì có cả getter và setter.
+
+#### Giải quyết xung đột Overriding
+
+- Nếu một lớp `implement` nhiều `interface`, mà những `interface` đó có hàm với tên giống nhau, thì khi gọi hàm `super` trong khi `override`, phải chỉ định hàm đó thuộc `interface` nào.
+
+  ```kotlin
+  interface A {
+    fun foo() { print("A") }
+    fun bar()
+  }
+
+  interface B {
+    fun foo() { print("B") }
+    fun bar() { print("bar") }
+  }
+
+  class C : A {
+    override fun bar() { print("bar") }
+  }
+
+  class D : A, B {
+    override fun foo() {
+        super<A>.foo()
+        super<B>.foo()
+    }
+
+    override fun bar() {
+        super<B>.bar()
+    }
+  }
+
+  fun main() {
+    val c = C()
+    c.foo()  // Output: A
+    c.bar()  // Output: bar
+    val d = D()
+    d.foo()  // Output: AB
+    d.bar()  // Output: bar
+  }
+  ```
+
 ## II. Backing field
 
+- Trong Kotlin, `field` chỉ được sử dụng như một phần của thuộc tính để lưu giá trị của nó trong bộ nhớ. `field` không thể được khai báo trực tiếp. Tuy nhiên khi một thuộc tính cần `backing fiels`, Kotlin có thể tự động hỗ trợ.
 
+  ```kotlin
+  var counter = 0 // the initializer assigns the backing field directly
+    set(value) {
+        if (value >= 0)
+            field = value
+            // counter = value // ERROR StackOverflow: Using actual name 'counter' would make setter recursive
+    }
+  ```
