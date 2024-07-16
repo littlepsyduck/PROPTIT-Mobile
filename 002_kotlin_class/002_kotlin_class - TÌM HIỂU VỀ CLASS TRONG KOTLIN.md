@@ -1,4 +1,4 @@
-:memo: <span style="color:orange">MOBILE_001_KOTLIN_SYNTAX</span>
+:memo: <span style="color:orange">MOBILE_002_KOTLIN_CLASS</span>
 
 # TÌM HIỂU VỀ CLASS TRONG KOTLIN
 
