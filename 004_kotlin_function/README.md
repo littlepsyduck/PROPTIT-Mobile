@@ -1,10 +1,7 @@
-# 001_kotlin_syntax
+# 004_kotlin_function
 
-## OOP và Backing field trong `Kotlin`
+## GENERIC, EXTENSION FUNCTION VÀ SCOPE FUNCTION
 
-* 4 tính chất OOP
-  * Encapsulation
-  * Inheritance
-  * Polymorphism
-  * Abstraction
-* Backing field
+- Generic: Generic là gì? Dùng khi nào? Tại sao phải dùng generic?
+- Extension function: Khái niệm, cách tạo, sử dụng và lợi ích khi dùng Extension fuction.
+- Scope function: Scope function là gì? Phân biệt các loại scope function. Phân loại this và it trong scope function.
