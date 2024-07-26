@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">006_android_overview</string>
+    <string name="Title">TextView</string>
+    <string name="Title_1">Let\'s enjoy the</string>
+    <string name="let_s_enjoy_the">Let\'s enjoy the</string>
+    <string name="beautiful_world">Beautiful World</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="skip">Skip</string>
+    <string name="the_ideal_hotel_at_a_great_price">The Ideal Hotel at a Great Price</string>
+    <string name="hotels">Hotels</string>
+    <string name="make_your_booking_with_flexifly_and_enjoy">Make your booking with Flexifly and enjoy</string>
+    <string name="tickets">Tickets</string>
+</resources>
