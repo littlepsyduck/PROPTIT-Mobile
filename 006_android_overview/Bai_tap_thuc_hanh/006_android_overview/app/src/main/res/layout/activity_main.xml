@@ -5,16 +5,30 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
-    <ImageView
+    <ImageButton
         android:id="@+id/background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/rounded_corner_background"
         android:contentDescription="@string/Title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="0dp"
+        android:layout_height="550dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/background" />
+        android:src="@drawable/background2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:riv_corner_radius="90dp" />
 
     <LinearLayout
         android:id="@+id/top_layout"
@@ -33,6 +47,7 @@
             android:id="@+id/title_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="serif"
             android:text="@string/let_s_enjoy_the"
             android:textSize="50sp" />
 
@@ -41,6 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/Title_1"
+            android:fontFamily="serif"
             android:text="@string/beautiful_world"
             android:textSize="60sp"
             android:textStyle="bold" />
@@ -97,8 +113,9 @@
                 android:id="@+id/tickets_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
                 android:text="@string/make_your_booking_with_flexifly_and_enjoy"
-                android:textStyle="italic"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -109,6 +126,7 @@
                 android:id="@+id/tickets_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/tickets"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -162,6 +180,7 @@
                 android:id="@+id/hotels_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="serif"
                 android:text="@string/hotels"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -173,8 +192,9 @@
                 android:id="@+id/hotels_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-thin"
                 android:text="@string/the_ideal_hotel_at_a_great_price"
-                android:textStyle="italic"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/guideline11"
@@ -223,7 +243,7 @@
             android:layout_marginBottom="40dp"
             android:background="?attr/selectableItemBackground"
             android:text="@string/skip"
-            android:textColor="#000000"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

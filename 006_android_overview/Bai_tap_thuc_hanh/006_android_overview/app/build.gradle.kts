@@ -49,6 +49,6 @@ dependencies {
 
     implementation(libs.androidx.cardview)
     implementation(libs.github.glide)
-    annotationProcessor(libs.compiler)
+    implementation (libs.roundedimageview)
 
 }
