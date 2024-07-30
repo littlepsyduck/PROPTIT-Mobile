@@ -4,16 +4,6 @@
 
 ![Picture 1](p1.webp)
 
-- Android Overview:
-  - Giới thiệu về hệ điều hành android và IDE android studio
-  - Tìm hiểu về android folder project structure trong IDE android studio ( manifest, java, res, gradle scripts,...).
-  - Giới thiệu về xml.
-  - Các tool cơ bản có trong android studio (debugger, log cat, layout inspector,...).
-  - Các view cơ bản trong android ( TextView, Button , ImageView ,...)
-- Basic Layout:
-  - FrameLayout, ConstraintLayout,… (Tập trung tìm hiểu kĩ ConstraintLayout, các layout khác đọc qua thôi cũng được).
-  - ViewBinding và cách sử dụng.
-
 ## Table of Content
 
 - [ANDROID OVERVIEW VÀ BASIC LAYOUT](#android-overview-và-basic-layout)
@@ -28,9 +18,6 @@
       - [Tạo View trong Android](#tạo-view-trong-android)
       - [Các thuộc tính của View](#các-thuộc-tính-của-view)
       - [Các View cơ bản](#các-view-cơ-bản)
-  - [II. Basic Layout](#ii-basic-layout)
-    - [1. ConstraintLayout](#1-constraintlayout)
-    - [2. ViewBinding](#2-viewbinding)
 
 ## I. Android Overview
 
@@ -193,15 +180,3 @@
 - **RecyclerView**: là một View hiệu suất cao hơn để hiển thị danh sách dữ liệu. Nó tương tự như ListView, nhưng cung cấp khả năng tái sử dụng các mục hiển thị và hỗ trợ tùy chỉnh mạnh mẽ hơn về giao diện và hiển thị dữ liệu.
 - **CheckBox**: là một View cho phép người dùng chọn hoặc bỏ chọn một tùy chọn. Nó có thể có hai trạng thái: chọn (checked) hoặc không chọn (unchecked).
 - **RadioButton**: là một View để hiển thị các lựa chọn tương tự như CheckBox, nhưng chỉ cho phép người dùng chọn một trong số các tùy chọn.
-
-## II. Basic Layout
-
-- 
-
-### 1. ConstraintLayout
-
-- 
-
-### 2. ViewBinding
-
-- 
