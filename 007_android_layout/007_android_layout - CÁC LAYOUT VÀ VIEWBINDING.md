@@ -334,10 +334,15 @@
 - Phần tử đầu tiên có chức năng thiết lập chung một số thông số về xích.
   - xích "spread"
 
-  ![Picture 9]()
+  ![Picture 9](p9.png)
 
   - xích "packed"
+
+  ![Picture 10](p10.png)
+
   - xích "spread_inside"
+
+  ![Picture 11](p11.png)
 
 
 ## II. View Binding
