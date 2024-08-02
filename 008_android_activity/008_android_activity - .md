@@ -77,7 +77,7 @@
 - Thường một Activity cung cấp một của sổ, ở đó ứng dụng sẽ dựng các thành phần UI (User Interface - giao diện người dùng). Mặc định cửa sổ này là đầy màn hình thiết bị, nhưng có một vài trường hợp riêng sẽ nhỏ hơn và nổi phía trên cửa sổ khác.
 - Hầu hết các ứng dụng đều sử dụng nhiều màn hình khác nhau, có nghĩa nó sẽ phải có nhiều Activity khác nhau. Khi một Activity chỉ định là Activity chính, nó sẽ là màn hình đầu tiên khi khởi chạy ứng dụng. Một Activity này lại có thể gọi và kích hoạt một Activity khác. Ví dụ một Activity hiện thị danh sách các ghi chú, nó gọi một Activity khác để xem nội dung chi tiết của ghi chú.
 
-  ![Picture 3](p3.jpg)
+  ![Picture 3](p3.pngpng)
 
   - Hình trên, ứng dụng khởi chạy với Activity - A, Activity - A kích hoạt Activity - B bằng Intent, Activity - B hoạt động có thể gọi Activity - C và khi bấm nút Back của điện thoạt Activity được gọi sẽ đóng và trở này Activity gọi nó.
 
