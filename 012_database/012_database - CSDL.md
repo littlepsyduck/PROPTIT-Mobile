@@ -17,7 +17,8 @@
       - [MySQL](#mysql)
   - [III. Database, Table](#iii-database-table)
     - [1. Database](#1-database)
-    - [2. Table](#2-table)
+    - [2. Các đặc điểm chính của cơ sở dữ liệu trong MySQL](#2-các-đặc-điểm-chính-của-cơ-sở-dữ-liệu-trong-mysql)
+    - [3. Table](#3-table)
   - [IV. Thao tác với dữ liệu](#iv-thao-tác-với-dữ-liệu)
     - [1. Các câu lệnh INSERT, UPDATE, DELETE](#1-các-câu-lệnh-insert-update-delete)
       - [INSERT](#insert)
@@ -106,7 +107,7 @@
 
 ### 1. Database
 
-- Database là cơ sở dữ liệu, là một bộ sưu tập dữ liệu được tổ chức bài bản và thường được truy cập từ hệ thống máy tính hoặc tồn tại dưới dạng tập tin trong hệ quản trị cơ sở dữ liệu.
+- Trong MySQL, database (cơ sở dữ liệu) là một tập hợp có tổ chức của các bảng (tables) chứa dữ liệu có liên quan với nhau. Mỗi cơ sở dữ liệu trong MySQL có thể chứa nhiều bảng, và mỗi bảng bao gồm các hàng (rows) và cột (columns) để lưu trữ thông tin.
 
 - Cách tạo database:
   - Nhấp vào New Query hoặc phím tắt Ctrl + N
@@ -124,7 +125,25 @@
   DROP DATABASE <tên database cần xóa>;
   ```
 
-### 2. Table
+### 2. Các đặc điểm chính của cơ sở dữ liệu trong MySQL
+
+- Tổ chức theo bảng:
+  - Mỗi cơ sở dữ liệu trong MySQL bao gồm một hoặc nhiều bảng.
+  - Mỗi bảng chứa các bản ghi (rows) và mỗi bản ghi được chia thành các trường (columns).
+  - Ví dụ: Bảng customers có thể có các cột như customer_id, name, email, và phone.
+- Quản lý dữ liệu:
+  - MySQL quản lý dữ liệu bằng cách cho phép các thao tác như thêm, sửa đổi, xóa, và truy vấn dữ liệu.
+  - Cơ sở dữ liệu giúp lưu trữ dữ liệu một cách có cấu trúc để dễ dàng truy cập và quản lý.
+- Khả năng truy vấn:
+  - MySQL hỗ trợ ngôn ngữ SQL (Structured Query Language) để thực hiện các truy vấn dữ liệu.
+  - Người dùng có thể truy vấn cơ sở dữ liệu để lấy ra các thông tin cần thiết.
+- Bảo mật và phân quyền:
+  - MySQL cung cấp cơ chế bảo mật để bảo vệ dữ liệu và phân quyền truy cập cho người dùng khác nhau.
+  - Có thể tạo các tài khoản người dùng với quyền hạn cụ thể để truy cập vào các cơ sở dữ liệu nhất định.
+- Quản lý dữ liệu lớn:
+  - MySQL có thể quản lý lượng dữ liệu lớn và hỗ trợ nhiều loại dữ liệu khác nhau, bao gồm cả văn bản, số, và dữ liệu nhị phân.
+
+### 3. Table
 
 - Trong cơ sở dữ liệu (database), một table (bảng) là một cấu trúc dữ liệu dùng để tổ chức và lưu trữ dữ liệu dưới dạng hàng và cột. Mỗi bảng trong cơ sở dữ liệu bao gồm nhiều cột, mỗi cột tương ứng với một thuộc tính cụ thể, và nhiều hàng, mỗi hàng chứa một tập hợp các giá trị thuộc về các cột tương ứng.
 - Các thành phần cơ bản của một bảng trong cơ sở dữ liệu:
@@ -321,6 +340,6 @@
 
 #### FULL OUTER JOIN (Hoặc OUTER JOIN)
 
-![Picture 7](p7.png)
+![Picture 7](p6.png)
 
 - Trả về tất cả các dòng đúng với 1 trong các bảng.
